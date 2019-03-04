@@ -1,0 +1,23 @@
+{
+  "name": "wedding_invitation",
+  "version": "1.0.0",
+  "description": "my wedding invitation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitee.com:lanruqing/wedding_invitation.git"
+  },
+  "author": "lan ruqing",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^4.0.0",
+    "gulp-scss":"^1.4.0",
+    "gulp-plumber":"^1.2.1",
+    "gulp-babel":"^8.0.0",
+    "babel-core":"^6.26.3",
+    "babel-preset-es2015":"^6.24.1"
+  }
+}
