@@ -13,11 +13,13 @@
   "author": "lan ruqing",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "@babel/preset-es2015": "^7.0.0-beta.53",
+    "browser-sync": "^2.26.3",
     "gulp": "^4.0.0",
-    "gulp-scss":"^1.4.0",
-    "gulp-plumber":"^1.2.1",
-    "gulp-babel":"^8.0.0",
-    "babel-core":"^6.26.3",
-    "babel-preset-es2015":"^6.24.1"
+    "gulp-babel": "^8.0.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-sass": "^4.0.2"
   }
 }
