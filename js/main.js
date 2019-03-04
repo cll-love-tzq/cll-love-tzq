@@ -5,16 +5,18 @@ function count_down() {
   var today = new Date();
   var main = Date.parse(wedding_date) - Date.parse(today);
   var ct = {
-    day: Math.floor(main / (1000 * 60 * 60 * 24)),
-    hour: Math.floor(main / (1000 * 60 * 60) % 24),
+    days: Math.floor(main / (1000 * 60 * 60 * 24)),
+    hours: Math.floor(main / (1000 * 60 * 60) % 24),
     minutes: Math.floor(main / 1000 / 60 % 60),
     seconds: Math.floor(main / 1000 % 60)
   };
   console.log(main + '\n' + ct.day);
-  document.querySelector('#countDown').innerHTML = "\u8DDD\u79BB\u5A5A\u793C\u8FD8\u6709".concat(ct.day, "\u5929").concat(ct.hour, "\u5C0F\u65F6").concat(ct.minutes, "\u5206\u949F").concat(ct.seconds, "\u79D2");
+  var result = "\n        <span title=\"days\">".concat(ct.days, "</span>\n        <span title=\"hours\">").concat(ct.hours, "</span>\n        <span title=\"minutes\">").concat(ct.minutes, "</span>\n        <span title=\"seconds\">").concat(ct.seconds, "</span>\n    ");
+  document.querySelector('#countDown').innerHTML = result;
 }
 
 window.onload = function () {
+  document.getElementsByTagName('html')[0].style.fontSize = window.innerWidth / 10 + 'px';
   setInterval(function () {
     count_down();
   }, 1000);
