@@ -1,3 +1,4 @@
+$title_white:rgba(255, 255, 255,0.8);
 @function rem($px){
     @return ($px/37.5px)+rem
 }
@@ -9,37 +10,124 @@
             size: cover;
         }
 }
+@mixin round(){
+    border-radius: 100%;
+}
+@mixin normal_flex(){
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items:center;
+}
+.circle-img{
+    @include round();
+}
 *{
     margin: 0;
     padding:0;
     box-sizing: border-box;
+    font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
 }
-html,body{
+html,body,#wedding_invitaiton{
     width:100%;
     height:100%;
     @include normal-bg();  
 }
-#countDown{
-    font-size:rem(16px);
+#wedding_invitaiton{
+    background-attachment: fixed;
+}
+#cover{ 
+    background-color: rgba(0,0,0,0.4);
     display: flex;
-    justify-content: center;
-    span{
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: center;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    padding: rem(60px) 0 rem(20px);
+    .subTitle{
+        font-size:rem(20px);
+        font-weight: normal;
+        text-align: center;
+        color:white;
+        font-family: 'Comic Sans MS', cursive, sans-serif;
+    }
+    .titles{
+        margin-top: rem(80px);
+        #headTitle{        
+            font-size:rem(60px);
+            color: $title_white;
+            text-align: center;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+        }
+        .subTitle{            
+            &.animate{
+                animation: title 1s linear infinite alternate;
+            }
+        }
+    }
+    #countDown_container{
+        font-size:rem(16px);
         display: flex;
-        height: rem(60px);
-        width: rem(60px);
-        margin: rem(10px);
-        border-radius: 100%;
-        background-color: rgba(0,0,0,0.7);
-        flex-direction: column;
         justify-content: center;
         align-items: center;
-        color: white;
-        font-weight: bold;
-        &:after{
-            display: block;
-            content: attr(title);
-            font-size:rem(10px);
-            font-weight: normal;
+        span{
+            display: flex;
+            height: rem(70px);
+            width: rem(70px);
+            margin: rem(10px);
+            border-radius: 100%;
+            background-color: rgba(0,0,0,0.7);
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            &:after{
+                display: block;
+                content: attr(title);
+                font-size:rem(10px);
+                font-weight: normal;
+            }
         }
+    }
+}
+#couple_info{
+    padding: rem(60px) 0 rem(20px);
+    @include normal_flex();
+    article{
+        width: 100%;
+        margin-bottom: rem(20px);
+        @include normal_flex();
+        *{
+            margin: rem(5px) auto;
+        }
+        h3{
+            font-size:rem(30px);
+        }
+        img{
+            width: rem(150px);
+        }
+        .name{
+            font-size: rem(25px);
+            font-weight: bold;
+            
+        }
+        .phone{
+            font-size: rem(15px);
+            font-weight: bold;
+        }
+    }
+}
+
+
+// animations
+@keyframes title{
+    from{
+        color: rgba(255, 255, 255,0.5);
+    }
+    to{
+        color: white;
     }
 }

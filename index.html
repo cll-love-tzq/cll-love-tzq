@@ -1,14 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>wedding</title>
     <link rel="stylesheet" href="./css/main.css">
+
 </head>
-<body style="background-image: url('./img/bg.jpg')">
-    <div id="countDown"></div>
+
+<body>
+    <div id="wedding_invitaiton" style="background-image: url('./img/bg.jpg')">
+        <div id="cover">
+            <div class="titles">
+                <h1 id='headTitle'>
+                    Lan & Mei
+                </h1>
+                <h3 class="subTitle animate">
+                    We Are Getting Married
+                </h3>
+            </div>
+            <div id="countDown_container">
+                <span v-for="item in countDown" v-text="item.value" :title="item.title">
+                </span>
+            </div>
+            <h3 class="subTitle">
+                - 2019.06.30 - 
+            </h3>
+        </div>
+        <div id="couple_info">
+            <article v-for="couple in couple_info">
+                <h3 v-text="couple.title"></h3>
+                <img class="circle-img" :src="couple.avatar" :alt="couple.name">
+                <p class="name" v-text="couple.name"></p>
+                <p class="phone" v-text="couple.phone" :title="couple.phone"></p>
+            </article>           
+        </div>
+    </div>
+
+    <script src="./js/vue.js"></script>
+    <script src="./js/main.js"></script>
 </body>
-<script src="./js/main.js"></script>
+
 </html>
