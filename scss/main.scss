@@ -1,6 +1,13 @@
 $title_white:rgba(255, 255, 255,0.8);
+$light_yellow:rgba(255,248,225 ,1);
+$light_blue:rgba(187,222,251 ,1);
+$couple_info_bg:$light_yellow;
+$timeline_container_bg:$light_blue;
 @function rem($px){
     @return ($px/37.5px)+rem
+}
+@mixin title($px:30px){
+    font-size:rem($px);
 }
 @mixin normal-bg(){
     background:
@@ -19,6 +26,11 @@ $title_white:rgba(255, 255, 255,0.8);
     flex-direction: column;
     align-items:center;
 }
+@mixin h_flex(){
+    display: flex;
+    justify-content: flex-start;
+    align-items:center;
+}
 .circle-img{
     @include round();
 }
@@ -26,7 +38,8 @@ $title_white:rgba(255, 255, 255,0.8);
     margin: 0;
     padding:0;
     box-sizing: border-box;
-    font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+    // font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+    font-family: 'Comic Sans MS', "微软雅黑",'Hiragino Sans GB','冬青黑体',cursive, sans-serif;
 }
 html,body,#wedding_invitaiton{
     width:100%;
@@ -95,6 +108,7 @@ html,body,#wedding_invitaiton{
 }
 #couple_info{
     padding: rem(60px) 0 rem(20px);
+    background-color: $couple_info_bg;
     @include normal_flex();
     article{
         width: 100%;
@@ -120,7 +134,52 @@ html,body,#wedding_invitaiton{
         }
     }
 }
-
+#timeline_container{
+    position: relative;
+    width: 100%;
+    padding: rem(20px) rem(5px);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    background-color: $timeline_container_bg;
+    h3{
+        @include title();
+    }
+    .timeline_row{
+        width: 100%;
+        @include h_flex();
+        .timeline_dot{
+            flex:0 0 30%;
+            @include normal_flex();
+            &:before,&:after{
+                content:'';
+                width: rem(2px);
+                background: black;
+                height: rem(50px);
+            }
+            span{
+                width: rem(50px);
+                height: rem(50px);
+                border-radius: 100%;
+                border-color: black;
+                border-width: rem(2px);
+                border-style: solid;
+                font-size:rem(14px);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+        .timeline_content{
+            flex:1 0 70%;
+            p{
+                font-size: rem(16px);
+            }
+        }
+    }
+    
+}
 
 // animations
 @keyframes title{
