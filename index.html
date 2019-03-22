@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>wedding</title>
-    <link rel="stylesheet" href="//at.alicdn.com/t/font_1102246_y3vud2812f.css">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_1102246_11w35zo1mt6.css">
     <link rel="stylesheet" href="./css/animate.css">
     <link rel="stylesheet" href="./css/main.css">
 
@@ -36,28 +36,37 @@
                 <h3 v-text="couple.title"></h3>
                 <img class="circle-img" :src="couple.avatar" :alt="couple.name">
                 <p class="name" v-text="couple.name"></p>
-                <p class="phone" v-text="couple.phone" :title="couple.phone"></p>
+                <p class="contact_info">
+                    <span class="iconfont icon-dianhua3 phone" :title="couple.phone"></span>
+                    <span class="iconfont icon-weixin1 wechat" :title="couple.phone"></span>
+                </p>
             </article>           
         </div>
         <div id='timeline_container'>
-            <h3>Our stories</h3>
-                <div class="timeline_row animated flipInX infinite">
-                        <div class="timeline_dot">
-                            <span>2010</span>
-                        </div>
-                        <div class="timeline_content">
-                            <p>
-                                we met at school
-                            </p>
-                        </div>
+            <div id='timeline_cover'>
+                <h3>Our stories</h3>
+                <div class="timeline_row animated slow" v-for = "(nodes,index) in timeline_nodes">
+                    <div class="timeline_dot">
+                        <span v-bind:class="['iconfont', nodes.icon]" :id="'dot'+(index+1)"></span>
                     </div>
-            <div class="timeline_row">
-                <div class="timeline_dot">
-                    <span></span>
+                    <div class="timeline_content">
+                        <h4 v-text="nodes.time"></h4>
+                        <p v-text="nodes.title"></p>
+                    </div>
                 </div>
             </div>
-            
-            
+        </div>
+        <div id='gallery_container'>
+            <div id="gallery">
+                <div id="gallery_ctrl">
+                    <!-- <h3 class="title">Gallery</h3> -->
+                    <span v-on:click="choosePic(index)" v-for="(pic,index) in gallery" :for="index" :class="['gallery_ctrls',index == 0 ? 'active' : '']" >
+                            {{pic.title | uppercase}}
+                    </span>
+                </div>
+                <div :style="{backgroundImage:'url('+pic.src+')'}" v-for="(pic,index) in gallery" class="photos">
+                </div>
+            </div>
         </div>
     </div>
 

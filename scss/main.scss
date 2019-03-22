@@ -1,8 +1,10 @@
 $title_white:rgba(255, 255, 255,0.8);
 $light_yellow:rgba(255,248,225 ,1);
 $light_blue:rgba(187,222,251 ,1);
+$light_cyan:rgba(178,235,242 ,1);
 $couple_info_bg:$light_yellow;
 $timeline_container_bg:$light_blue;
+$timeline_main_color:white;
 @function rem($px){
     @return ($px/37.5px)+rem
 }
@@ -40,11 +42,12 @@ $timeline_container_bg:$light_blue;
     box-sizing: border-box;
     // font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
     font-family: 'Comic Sans MS', "微软雅黑",'Hiragino Sans GB','冬青黑体',cursive, sans-serif;
+    // overflow-x: hidden;
 }
 html,body,#wedding_invitaiton{
     width:100%;
     height:100%;
-    @include normal-bg();  
+    @include normal-bg();
 }
 #wedding_invitaiton{
     background-attachment: fixed;
@@ -109,6 +112,7 @@ html,body,#wedding_invitaiton{
 #couple_info{
     padding: rem(60px) 0 rem(20px);
     background-color: $couple_info_bg;
+    width: 100%;
     @include normal_flex();
     article{
         width: 100%;
@@ -124,9 +128,20 @@ html,body,#wedding_invitaiton{
             width: rem(150px);
         }
         .name{
-            font-size: rem(25px);
+            font-size: rem(20px);
             font-weight: bold;
             
+        }
+        .contact_info{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            span{
+                display: block;
+                width: rem(30px);
+                height: rem(30px);
+                font-size: rem(20px);
+            }
         }
         .phone{
             font-size: rem(15px);
@@ -137,50 +152,138 @@ html,body,#wedding_invitaiton{
 #timeline_container{
     position: relative;
     width: 100%;
-    padding: rem(20px) rem(5px);
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: column;
-    background-color: $timeline_container_bg;
+    background-image: url('../img/timelineBg.jpg');
+    background-position:center bottom;
+    background-size: cover;
+    background-attachment: fixed;
+    #timeline_cover{
+        background-color: rgba(57,73,171 ,0.5);
+        padding: rem(20px) rem(5px);
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+    }
     h3{
         @include title();
+        margin-bottom: rem(20px);
+        color: $timeline_main_color;
     }
     .timeline_row{
         width: 100%;
         @include h_flex();
+        align-items: flex-start;
+        &:last-of-type{
+            .timeline_dot{
+                &:after{
+                    height: rem(70px);
+                    background:linear-gradient(to bottom, $timeline_main_color, rgba(0,0,0,0));
+                }
+            }
+        }
         .timeline_dot{
             flex:0 0 30%;
             @include normal_flex();
-            &:before,&:after{
+            &:after{
                 content:'';
                 width: rem(2px);
-                background: black;
+                background: $timeline_main_color;
                 height: rem(50px);
             }
             span{
                 width: rem(50px);
                 height: rem(50px);
                 border-radius: 100%;
-                border-color: black;
+                border-color: $timeline_main_color;
                 border-width: rem(2px);
                 border-style: solid;
-                font-size:rem(14px);
+                font-size:rem(25px);
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                color: $timeline_main_color;
             }
         }
         .timeline_content{
             flex:1 0 70%;
+            h4{
+                font-size: rem(20px);
+                color: $timeline_main_color;
+            }
             p{
                 font-size: rem(16px);
+                color: $timeline_main_color;
             }
         }
     }
     
 }
-
+#gallery_container{
+    position: relative;
+    width: 100%;
+    background-color: white;
+    @include normal_flex();#gallery{
+        position: relative;
+        width: 100%;
+        height: rem(700px);
+        #gallery_ctrl{
+            @include normal_flex();
+            align-items: flex-start;
+            padding: rem(20px);
+            position: absolute;
+            right: rem(0px);
+            bottom: rem(0px);
+            z-index: 99;
+            width: 100%;
+            background: rgba(0,0,0,0.4);
+            .title{
+                display: flex;
+                width: 100%;
+                justify-content: flex-start;
+                align-items: center;
+                padding: rem(10px) 0;
+                @include title();
+                color: white;
+            }
+            span{
+                display: block;
+                color: white;
+                text-shadow: 0 0 0 black;
+                font-size: rem(18px);
+                opacity:0.5;
+                transition:all 0.5s linear;
+                font-weight: bold;
+                cursor: pointer;
+                &.active{
+                    opacity: 1;
+                    text-shadow: 0 0 rem(30px) rgba(255,255,255,0.8);
+                }
+            }
+        }
+        .photos{
+            background:
+            {
+                position:left center;;
+                repeat:no-repeat;
+                size: cover;
+            }
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            transition:all 2s linear;
+            &.active{
+                opacity: 1;
+                animation: gallery 10s linear infinite alternate;
+            }
+        }
+    }
+}
 // animations
 @keyframes title{
     from{
@@ -188,5 +291,29 @@ html,body,#wedding_invitaiton{
     }
     to{
         color: white;
+    }
+}
+@keyframes gallery{
+    from{
+        background-position: center;
+    }
+    to{
+        background-position: right center;
+    }
+}
+//response
+@media(min-width:800px){
+    #cover{
+        .titles{
+            margin-top: 0;
+        }
+    }
+    #couple_info{
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        article{
+            flex:1 0 50%;
+        }
     }
 }
