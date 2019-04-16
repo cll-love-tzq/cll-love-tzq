@@ -70,6 +70,7 @@ html, body, #wedding_invitaiton {
   padding: 1.6rem 0 0.53333rem;
   background-color: #fff8e1;
   width: 100%;
+  color: #455a64;
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
@@ -111,7 +112,7 @@ html, body, #wedding_invitaiton {
   background-size: cover;
   background-attachment: fixed; }
   #timeline_container #timeline_cover {
-    background-color: rgba(57, 73, 171, 0.5);
+    background-color: rgba(166, 106, 176, 0.6);
     padding: 0.53333rem 0.13333rem;
     display: flex;
     justify-content: flex-start;
@@ -163,6 +164,44 @@ html, body, #wedding_invitaiton {
       #timeline_container .timeline_row .timeline_content p {
         font-size: 0.42667rem;
         color: white; }
+
+#tips_container {
+  padding: 0.8rem 1.33333rem 0.53333rem 1.33333rem;
+  background-color: #fff8e1;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.53333rem;
+  color: #303f9f; }
+  #tips_container h3 {
+    font-size: 0.8rem;
+    margin-bottom: 0.53333rem;
+    color: #303f9f; }
+  #tips_container p {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.13333rem auto; }
+    #tips_container p .title {
+      flex: 1;
+      font-size: 0.8rem;
+      text-align: center; }
+    #tips_container p .inner {
+      flex: 3 0 2.66667rem;
+      text-align: center; }
+  #tips_container #gotoHotel {
+    margin-top: 0.8rem;
+    color: #303f9f;
+    text-decoration: none;
+    position: relative;
+    font-size: 0.42667rem; }
+    #tips_container #gotoHotel .iconfont {
+      font-weight: bold;
+      font-size: 0.48rem;
+      animation: navi 1s linear infinite alternate; }
 
 #gallery_container {
   position: relative;
@@ -223,13 +262,21 @@ html, body, #wedding_invitaiton {
       transition: all 2s linear; }
       #gallery_container #gallery .photos.active {
         opacity: 1;
-        animation: gallery 10s linear infinite alternate; }
+        animation: gallery 15s linear infinite alternate; }
+      #gallery_container #gallery .photos:hover {
+        animation-play-state: paused; }
 
 @keyframes title {
   from {
     color: rgba(255, 255, 255, 0.5); }
   to {
     color: white; } }
+
+@keyframes navi {
+  from {
+    color: rgba(255, 248, 225, 0.5); }
+  to {
+    color: #303f9f; } }
 
 @keyframes gallery {
   from {

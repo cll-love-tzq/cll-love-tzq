@@ -1,7 +1,12 @@
 $title_white:rgba(255, 255, 255,0.8);
 $light_yellow:rgba(255,248,225 ,1);
+$green:rgba(229,252,202,1);
 $light_blue:rgba(187,222,251 ,1);
 $light_cyan:rgba(178,235,242 ,1);
+$dark_purple:rgba(166,106,176,1);
+$light_purple:rgba(245,202,252,1);
+$deep_green:rgba(151,176,123,1);
+$deep_blue:rgba(48,63,159 ,1);
 $couple_info_bg:$light_yellow;
 $timeline_container_bg:$light_blue;
 $timeline_main_color:white;
@@ -113,6 +118,7 @@ html,body,#wedding_invitaiton{
     padding: rem(60px) 0 rem(20px);
     background-color: $couple_info_bg;
     width: 100%;
+    color: rgba(69,90,100 ,1);
     @include normal_flex();
     article{
         width: 100%;
@@ -157,7 +163,7 @@ html,body,#wedding_invitaiton{
     background-size: cover;
     background-attachment: fixed;
     #timeline_cover{
-        background-color: rgba(57,73,171 ,0.5);
+        background-color: rgba(166,106,176 ,0.6);
         padding: rem(20px) rem(5px);
         display: flex;
         justify-content: flex-start;
@@ -220,6 +226,48 @@ html,body,#wedding_invitaiton{
     }
     
 }
+#tips_container{
+    padding: rem(30px) rem(50px) rem(20px) rem(50px);
+    background-color: rgba(255,248,225 ,1);
+    @include normal_flex();
+    justify-content: center;
+    font-size: rem(20px);
+    color: rgba(48,63,159 ,1);
+    h3{
+        @include title();
+        margin-bottom: rem(20px);
+        color: rgba(48,63,159 ,1);
+    }
+    p{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: rem(5px) auto;
+        .title{
+            flex: 1;
+            font-size: rem(30px);
+            text-align: center;
+        }
+        .inner{
+            flex: 3 0 rem(100px);
+            text-align: center;
+        }
+    }
+    #gotoHotel{
+        margin-top: rem(30px);
+        color: rgba(48,63,159 ,1);
+        text-decoration: none;
+        position: relative;
+        // border-bottom: 1px solid $green;
+        font-size: rem(16px);
+        .iconfont{
+            font-weight: bold;
+            font-size: rem(18px);
+            animation: navi 1s linear infinite alternate;
+        }
+    }
+}
 #gallery_container{
     position: relative;
     width: 100%;
@@ -279,7 +327,10 @@ html,body,#wedding_invitaiton{
             transition:all 2s linear;
             &.active{
                 opacity: 1;
-                animation: gallery 10s linear infinite alternate;
+                animation: gallery 15s linear infinite alternate;                
+            }
+            &:hover{
+                animation-play-state:paused;
             }
         }
     }
@@ -291,6 +342,14 @@ html,body,#wedding_invitaiton{
     }
     to{
         color: white;
+    }
+}
+@keyframes navi{
+    from{
+        color: rgba(255,248,225 ,0.5);
+    }
+    to{
+        color: rgba(48,63,159 ,1);
     }
 }
 @keyframes gallery{
