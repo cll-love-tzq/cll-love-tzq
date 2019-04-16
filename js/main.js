@@ -42,13 +42,13 @@ var wi = new Vue({
         title: "The Groom",
         name: "Lan Ruqing",
         phone: "15040501365",
-        avatar: '../img/lrq.jpg'
+        avatar: './img/lrq.jpg'
       },
       bride: {
         title: "The Bride",
         name: "Mei Siyu",
         phone: "13940943132",
-        avatar: '../img/msy.jpg'
+        avatar: './img/msy.jpg'
       }
     },
     timeline_nodes: [{
