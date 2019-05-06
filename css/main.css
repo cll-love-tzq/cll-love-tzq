@@ -17,6 +17,45 @@ html, body, #wedding_invitaiton {
 
 #wedding_invitaiton {
   background-attachment: fixed; }
+  #wedding_invitaiton #musicControl {
+    font-size: 0.66667rem;
+    color: white;
+    position: fixed;
+    right: 0.66667rem;
+    top: 0.66667rem;
+    border-radius: 100%;
+    display: block;
+    height: 1.06667rem;
+    width: 1.06667rem; }
+  #wedding_invitaiton.noReady {
+    overflow: hidden;
+    height: 100vh; }
+    #wedding_invitaiton.noReady #ready {
+      background-color: orange;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      width: 100vw;
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      z-index: 999; }
+      #wedding_invitaiton.noReady #ready .loader {
+        display: block; }
+      #wedding_invitaiton.noReady #ready p {
+        color: white;
+        font-size: 0.53333rem;
+        margin-top: 0.53333rem; }
+      #wedding_invitaiton.noReady #ready .playH5 {
+        display: none;
+        font-size: 1.6rem;
+        color: white; }
+        #wedding_invitaiton.noReady #ready .playH5#start {
+          display: none !important; }
+  #wedding_invitaiton .playH5#start {
+    display: none !important; }
 
 #cover {
   background-color: rgba(0, 0, 0, 0.4);
@@ -107,7 +146,7 @@ html, body, #wedding_invitaiton {
 #timeline_container {
   position: relative;
   width: 100%;
-  background-image: url("../img/timelineBg.jpg");
+  background-image: url("/img/timelineBg.jpg");
   background-position: center bottom;
   background-size: cover;
   background-attachment: fixed; }

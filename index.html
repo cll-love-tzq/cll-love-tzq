@@ -7,13 +7,20 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>wedding</title>
     <link rel="stylesheet" href="https://at.alicdn.com/t/font_1102246_qyecm34izhf.css">
-    <link rel="stylesheet" href="./css/animate.css">
-    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="css/loaders.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/main.css">
 
 </head>
 
 <body>
-    <div id="wedding_invitaiton" style="background-image: url('./img/bg.jpg')">
+    <div id="wedding_invitaiton" :class="noReady ? '' : 'noReady'" style="background-image: url('/img/bg.jpg')">
+        <span id="musicControl" class="iconfont icon-music"></span>
+        <div id="ready">
+            <div class="wattingForHide loader animated"><div class="pacman"><div></div><div></div><div></div><div></div><div></div></div></div>
+            <p class="wattingForHide animated tada infinite slow">loading...</p>
+            <a class="iconfont icon-play playH5 animated" :id="noReady ? 'start' : 'none'" @click="play()"></a>
+        </div>
         <div id="cover">
             <div class="titles">
                 <h1 id='headTitle'>
@@ -73,7 +80,7 @@
                 </span>
             </p>
             <p>
-                <a target="_blank" id="gotoHotel" class="animated jello infinite slow" href="https://apis.map.qq.com/uri/v1/marker?marker=coord:38.913400,121.659060;title:南山宾馆;addr:辽宁省大连市中山区枫林街56号&referer=4GBBZ-RD562-RDSU3-CQQB5-SXOET-AMFA4">
+                <a target="_blank" id="gotoHotel" class="animated tada infinite slow" href="https://apis.map.qq.com/uri/v1/marker?marker=coord:38.913400,121.659060;title:南山宾馆;addr:辽宁省大连市中山区枫林街56号&referer=4GBBZ-RD562-RDSU3-CQQB5-SXOET-AMFA4">
                     Go to Hotel
                     <span class="iconfont icon-daohang"></span>
                 </a>

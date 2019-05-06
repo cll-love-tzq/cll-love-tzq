@@ -1,0 +1,72 @@
+{
+    "noReady": false,
+    "countDown": {
+        "days": {
+            "title": "Days",
+            "value": 0
+        },
+        "hours": {
+            "title": "Hours",
+            "value": 0
+        },
+        "minutes": {
+            "title": "Minutes",
+            "value": 0
+        },
+        "seconds": {
+            "title": "Seconds",
+            "value": 0
+        }
+    },
+    "couple_info": {
+        "groom": {
+            "title": "The Groom",
+            "name": "Lan Ruqing",
+            "phone": "15040501365",
+            "avatar": "/img/lrq.jpg"
+        },
+        "bride": {
+            "title": "The Bride",
+            "name": "Mei Siyu",
+            "phone": "13940943132",
+            "avatar": "/img/msy.jpg"
+        }
+    },
+    "timeline_nodes": [{
+        "time": "2010",
+        "title": "we met at school",
+        "icon": "icon-school"
+    }, {
+        "time": "Nov 08, 2012",
+        "title": "we fall in love",
+        "icon": "icon-aiqingyuehui"
+    }, {
+        "time": "2018",
+        "title": "We ready to get married",
+        "icon": "icon-svgmanylove"
+    }, {
+        "time": "Feb 14, 2019",
+        "title": "We got married",
+        "icon": "icon-jiehunzhengshu"
+    }, {
+        "time": "Jun 30, 2019",
+        "title": "Our wedding",
+        "icon": "icon-bhjwedding"
+    }],
+    "gallery": [{
+        "title": "sea",
+        "src": "/img/g_sea.jpg"
+    }, {
+        "title": "park",
+        "src": "/img/g_park.jpg"
+    }, {
+        "title": "Formal",
+        "src": "/img/g_formal.jpg"
+    }, {
+        "title": "Valencia",
+        "src": "/img/g_vcf.jpg"
+    }, {
+        "title": "Old Street",
+        "src": "/img/g_street.jpg"
+    }]
+}

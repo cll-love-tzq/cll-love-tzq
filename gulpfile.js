@@ -5,6 +5,7 @@ const gulp = require('gulp');
 const plumber = require('gulp-plumber');
 const scss = require('gulp-sass');
 const babel = require('gulp-babel')
+const del = require('del');
 const browserSync = require('browser-sync').create(),
 reload = browserSync.reload;
 
@@ -39,5 +40,18 @@ gulp.task('start',gulp.parallel('scss','es6',()=>{
     gulp.watch('*.html').on('change', reload);
     gulp.watch('./js/*').on('change', reload);
 }))
-
+gulp.task('clean',()=>{
+    return del('./dist/*')
+    console.log('delete')
+})
+gulp.task('build',gulp.parallel('clean',()=>{
+    return gulp.src('./js/*')
+    .pipe(gulp.dest('./dist/js'))
+    .pipe(gulp.src('./css/*'))
+    .pipe(gulp.dest('./dist/css'))
+    .pipe(gulp.src('./img/*'))
+    .pipe(gulp.dest('./dist/img'))
+    .pipe(gulp.src('./music/*'))
+    .pipe(gulp.dest('./dist/music'))
+}))
 gulp.task('default',gulp.series('start'))

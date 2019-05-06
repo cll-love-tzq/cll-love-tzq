@@ -56,6 +56,56 @@ html,body,#wedding_invitaiton{
 }
 #wedding_invitaiton{
     background-attachment: fixed;
+    #musicControl{
+        font-size: rem(25px);
+        color: white;
+        position: fixed;
+        right: rem(25px);
+        top: rem(25px);
+        border-radius: 100%;
+        display: block;
+        height: rem(40px);
+        width: rem(40px);
+    }
+    &.noReady{
+        overflow: hidden;
+        height: 100vh;
+        #ready{
+            .loader{
+                display: block;
+            }
+            p{
+                color: white;
+                font-size: rem(20px);
+                margin-top:  rem(20px);
+            }
+            background-color: orange;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            z-index: 999;
+            .playH5{
+                display: none;
+                font-size: rem(60px);
+                color: white;
+                &#start{
+                    display: none !important;
+
+                }
+            }
+        }
+    }
+    .playH5{
+        &#start{
+            display: none !important;
+        }
+    }
 }
 #cover{ 
     background-color: rgba(0,0,0,0.4);
@@ -158,7 +208,7 @@ html,body,#wedding_invitaiton{
 #timeline_container{
     position: relative;
     width: 100%;
-    background-image: url('../img/timelineBg.jpg');
+    background-image: url('/img/timelineBg.jpg');
     background-position:center bottom;
     background-size: cover;
     background-attachment: fixed;
@@ -327,7 +377,7 @@ html,body,#wedding_invitaiton{
             transition:all 2s linear;
             &.active{
                 opacity: 1;
-                animation: gallery 15s linear infinite alternate;                
+                animation: gallery 15s linear infinite alternate;              
             }
             &:hover{
                 animation-play-state:paused;
