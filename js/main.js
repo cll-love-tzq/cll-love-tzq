@@ -71,6 +71,8 @@ fetch('/js/data.json').then(function (res) {
         pictures[index].classList.add('active');
       },
       loadResources: function loadResources() {
+        var _this = this;
+
         var images_array = [this.couple_info.groom.avatar, this.couple_info.bride.avatar, "/img/timelineBg.jpg", "/img/bg.jpg"];
         this.gallery.forEach(function (item, index) {
           images_array.push(item.src);
@@ -94,20 +96,27 @@ fetch('/js/data.json').then(function (res) {
               });
 
               if (wattingForHideNum == wattingForHide.length) {
-                setTimeout(function () {
+                document.getElementById('bgm').oncanplaythrough = setTimeout(function () {
                   wattingForHide.forEach(function (ele, i) {
                     ele.style.display = 'none';
                   });
                   document.querySelector('.playH5').classList.add('fadeIn');
                   document.querySelector('.playH5').style.display = 'block';
+
+                  document.querySelector('.playH5').onclick = function () {
+                    document.getElementById('bgm').play();
+                    document.getElementById('musicControl').classList.add('active');
+                    _this.noReady = true;
+                    document.querySelector('#ready').style.opacity = 0;
+                    setTimeout(function () {
+                      document.querySelector('#ready').remove();
+                    }, 500);
+                  };
                 }, 1500);
               }
             }
           });
         });
-      },
-      play: function play() {
-        this.noReady = true;
       },
       throttle: function throttle(fun, delay) {
         var last, deferTimer;
@@ -130,6 +139,7 @@ fetch('/js/data.json').then(function (res) {
       }
     },
     created: function created() {
+      console.log(this.data);
       this.loadResources();
 
       if (document.body.clientWidth <= 580) {
@@ -149,10 +159,29 @@ fetch('/js/data.json').then(function (res) {
 
       window.onscroll = function () {
         var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-        wi.throttle(wi.timeline(scrollTop), 1000); // if (scrollTop > document.getElementById('dot1').offsetTop) {
-        //   document.getElementsByClassName('photos')[0].classList.add('active');
-        // }
+        wi.throttle(wi.timeline(scrollTop), 2000);
       };
+    },
+    mounted: function mounted() {
+      Array.from(document.querySelectorAll('.phone')).forEach(function (p, i) {
+        console.log(p);
+
+        p.onclick = function () {
+          console.log(p.getAttribute('title'));
+          window.open("tel:" + p.getAttribute('title'));
+        };
+      });
     }
   });
 });
+var musicStatus = true;
+
+function musicControl() {
+  if (musicStatus) {
+    document.getElementById('bgm').pause();
+    document.getElementById('musicControl').classList.remove('active');
+  } else {
+    document.getElementById('bgm').play();
+    document.getElementById('musicControl').classList.add('active');
+  }
+}

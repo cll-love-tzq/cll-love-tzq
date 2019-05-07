@@ -1,114 +1,152 @@
-$title_white:rgba(255, 255, 255,0.8);
-$light_yellow:rgba(255,248,225 ,1);
-$green:rgba(229,252,202,1);
-$light_blue:rgba(187,222,251 ,1);
-$light_cyan:rgba(178,235,242 ,1);
-$dark_purple:rgba(166,106,176,1);
-$light_purple:rgba(245,202,252,1);
-$deep_green:rgba(151,176,123,1);
-$deep_blue:rgba(48,63,159 ,1);
+$title_white:rgba(255, 255, 255, 0.8);
+$light_yellow:rgba(255, 248, 225, 1);
+$green:rgba(229, 252, 202, 1);
+$light_blue:rgba(187, 222, 251, 1);
+$light_cyan:rgba(178, 235, 242, 1);
+$dark_purple:rgba(166, 106, 176, 1);
+$light_purple:rgba(245, 202, 252, 1);
+$deep_green:rgba(151, 176, 123, 1);
+$deep_blue:rgba(48, 63, 159, 1);
 $couple_info_bg:$light_yellow;
 $timeline_container_bg:$light_blue;
 $timeline_main_color:white;
-@function rem($px){
+
+@function rem($px) {
     @return ($px/37.5px)+rem
 }
-@mixin title($px:30px){
-    font-size:rem($px);
+
+@mixin title($px:30px) {
+    font-size: rem($px);
 }
-@mixin normal-bg(){
-    background:
-        {
-            position:center;
-            repeat:no-repeat;
-            size: cover;
-        }
+
+@mixin normal-bg() {
+    background: {
+        position: center;
+        repeat: no-repeat;
+        size: cover;
+    }
 }
-@mixin round(){
+
+@mixin round() {
     border-radius: 100%;
 }
-@mixin normal_flex(){
+
+@mixin normal_flex() {
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
-    align-items:center;
+    align-items: center;
 }
-@mixin h_flex(){
+
+@mixin h_flex() {
     display: flex;
     justify-content: flex-start;
-    align-items:center;
+    align-items: center;
 }
-.circle-img{
+
+@font-face{
+    font-family: "font1";
+    src:url(/fonts/FZSJ-XRWFTJW.woff) format("woff");
+}
+
+.circle-img {
     @include round();
 }
-*{
+
+* {
     margin: 0;
-    padding:0;
+    padding: 0;
     box-sizing: border-box;
     // font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
-    font-family: 'Comic Sans MS', "微软雅黑",'Hiragino Sans GB','冬青黑体',cursive, sans-serif;
+    font-family: 'font1', cursive, sans-serif;
     // overflow-x: hidden;
 }
-html,body,#wedding_invitaiton{
-    width:100%;
-    height:100%;
+
+html,
+body,
+#wedding_invitaiton {
+    width: 100%;
+    height: 100%;
     @include normal-bg();
 }
-#wedding_invitaiton{
-    background-attachment: fixed;
-    #musicControl{
-        font-size: rem(25px);
-        color: white;
-        position: fixed;
-        right: rem(25px);
-        top: rem(25px);
-        border-radius: 100%;
-        display: block;
-        height: rem(40px);
-        width: rem(40px);
-    }
-    &.noReady{
-        overflow: hidden;
-        height: 100vh;
-        #ready{
-            .loader{
-                display: block;
-            }
-            p{
-                color: white;
-                font-size: rem(20px);
-                margin-top:  rem(20px);
-            }
-            background-color: orange;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            width: 100vw;
-            position: fixed;
-            left: 0;
-            bottom: 0;
-            z-index: 999;
-            .playH5{
-                display: none;
-                font-size: rem(60px);
-                color: white;
-                &#start{
-                    display: none !important;
 
-                }
-            }
+#ready {
+    .loader {
+        display: block;
+    }
+
+    p {
+        color: white;
+        font-size: rem(20px);
+        margin-top: rem(20px);
+    }
+
+    background-color: rgba(255,196,0 ,1);
+    display: flex;
+
+    &.finished {
+        display: none;
+    }
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 999;
+    transition: 0.45s all linear;
+
+    .playH5 {
+        display: none;
+        font-size: rem(60px);
+        color: white;
+
+        &#start {
+            display: none !important;
+
         }
     }
-    .playH5{
-        &#start{
+}
+#musicControl {
+    font-size: rem(25px);
+    color: white;
+    position: fixed;
+    z-index: 9999;
+    right: rem(25px);
+    top: rem(25px);
+    border-radius: 100%;
+    display: block;
+    height: rem(40px);
+    width: rem(40px);
+    opacity: 0.5;
+    &.active{
+        animation: playing 2s linear infinite alternate;
+    }    
+}
+#wedding_invitaiton {
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+
+    
+
+    &.noReady {
+        overflow: hidden;
+        height: 100vh;
+
+    }
+
+    .playH5 {
+        &#start {
             display: none !important;
         }
     }
 }
-#cover{ 
-    background-color: rgba(0,0,0,0.4);
+
+#cover {
+    background-color: rgba(0, 0, 0, 0.4);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -117,103 +155,122 @@ html,body,#wedding_invitaiton{
     width: 100%;
     position: relative;
     padding: rem(60px) 0 rem(20px);
-    .subTitle{
-        font-size:rem(20px);
+
+    .subTitle {
+        font-size: rem(20px);
         font-weight: normal;
         text-align: center;
-        color:white;
-        font-family: 'Comic Sans MS', cursive, sans-serif;
+        color: white;
+        font-family: 'font1', cursive, sans-serif;
     }
-    .titles{
+
+    .titles {
         margin-top: rem(80px);
-        #headTitle{        
-            font-size:rem(60px);
+
+        #headTitle {
+            font-size: rem(60px);
             color: $title_white;
             text-align: center;
-            font-family: 'Comic Sans MS', cursive, sans-serif;
+            font-family: 'font1', cursive, sans-serif;
         }
-        .subTitle{            
-            &.animate{
+
+        .subTitle {
+            &.animate {
                 animation: title 1s linear infinite alternate;
             }
         }
     }
-    #countDown_container{
-        font-size:rem(16px);
+
+    #countDown_container {
+        font-size: rem(16px);
         display: flex;
         justify-content: center;
         align-items: center;
-        span{
+
+        span {
             display: flex;
             height: rem(70px);
             width: rem(70px);
             margin: rem(10px);
             border-radius: 100%;
-            background-color: rgba(0,0,0,0.7);
+            background-color: rgba(0, 0, 0, 0.7);
             flex-direction: column;
             justify-content: center;
             align-items: center;
             color: white;
             font-weight: bold;
-            &:after{
+
+            &:after {
                 display: block;
                 content: attr(title);
-                font-size:rem(10px);
+                font-size: rem(10px);
                 font-weight: normal;
             }
         }
     }
 }
-#couple_info{
+
+#couple_info {
     padding: rem(60px) 0 rem(20px);
     background-color: $couple_info_bg;
     width: 100%;
-    color: rgba(69,90,100 ,1);
+    color: rgba(69, 90, 100, 1);
     @include normal_flex();
-    article{
+
+    article {
         width: 100%;
         margin-bottom: rem(20px);
         @include normal_flex();
-        *{
+
+        * {
             margin: rem(5px) auto;
         }
-        h3{
-            font-size:rem(30px);
+
+        h3 {
+            font-size: rem(30px);
         }
-        img{
+
+        img {
             width: rem(150px);
         }
-        .name{
+
+        .name {
             font-size: rem(20px);
             font-weight: bold;
-            
+
         }
-        .contact_info{
+
+        .contact_info {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            span{
+
+            span {
                 display: block;
                 width: rem(30px);
                 height: rem(30px);
                 font-size: rem(20px);
             }
         }
-        .phone{
-            font-size: rem(15px);
+
+        .phone {
+            font-size: rem(20px);
             font-weight: bold;
         }
     }
 }
-#timeline_container{
+
+#timeline_container {
     position: relative;
     width: 100%;
     background-image: url('/img/timelineBg.jpg');
-    background-position:center bottom;
+    background-position: center bottom;
     background-size: cover;
     background-attachment: fixed;
-    #timeline_cover{
-        background-color: rgba(166,106,176 ,0.6);
+    background-repeat: no-repeat;
+
+    #timeline_cover {
+        background-color: rgba(166, 106, 176, 0.6);
         padding: rem(20px) rem(5px);
         display: flex;
         justify-content: flex-start;
@@ -222,111 +279,142 @@ html,body,#wedding_invitaiton{
         width: 100%;
         height: 100%;
     }
-    h3{
+
+    h3 {
         @include title();
         margin-bottom: rem(20px);
         color: $timeline_main_color;
     }
-    .timeline_row{
+
+    .timeline_row {
         width: 100%;
         @include h_flex();
         align-items: flex-start;
-        &:last-of-type{
-            .timeline_dot{
-                &:after{
+
+        &:last-of-type {
+            .timeline_dot {
+                &:after {
                     height: rem(70px);
-                    background:linear-gradient(to bottom, $timeline_main_color, rgba(0,0,0,0));
+                    background: linear-gradient(to bottom, $timeline_main_color, rgba(0, 0, 0, 0));
                 }
             }
         }
-        .timeline_dot{
-            flex:0 0 30%;
+
+        .timeline_dot {
+            flex: 0 0 30%;
             @include normal_flex();
-            &:after{
-                content:'';
+
+            &:after {
+                content: '';
                 width: rem(2px);
                 background: $timeline_main_color;
                 height: rem(50px);
             }
-            span{
+
+            span {
                 width: rem(50px);
                 height: rem(50px);
                 border-radius: 100%;
                 border-color: $timeline_main_color;
                 border-width: rem(2px);
                 border-style: solid;
-                font-size:rem(25px);
+                font-size: rem(25px);
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 color: $timeline_main_color;
             }
         }
-        .timeline_content{
-            flex:1 0 70%;
-            h4{
+
+        .timeline_content {
+            flex: 1 0 70%;
+
+            h4 {
                 font-size: rem(20px);
                 color: $timeline_main_color;
             }
-            p{
+
+            p {
                 font-size: rem(16px);
                 color: $timeline_main_color;
             }
         }
     }
-    
+
 }
-#tips_container{
+
+#tips_container {
     padding: rem(30px) rem(50px) rem(20px) rem(50px);
-    background-color: rgba(255,248,225 ,1);
+    background-color: rgba(255, 248, 225, 1);
     @include normal_flex();
     justify-content: center;
     font-size: rem(20px);
-    color: rgba(48,63,159 ,1);
-    h3{
+    color: rgba(48, 63, 159, 1);
+
+    h3 {
         @include title();
         margin-bottom: rem(20px);
-        color: rgba(48,63,159 ,1);
+        color: rgba(48, 63, 159, 1);
     }
-    p{
+
+    p {
         width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
         margin: rem(5px) auto;
-        .title{
+
+        .title {
             flex: 1;
             font-size: rem(30px);
             text-align: center;
         }
-        .inner{
+
+        .inner {
             flex: 3 0 rem(100px);
             text-align: center;
+
+            &.hotellInfo {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                .phone {
+                    margin-left: rem(3px);
+                    font-size: rem(25px);
+                }
+            }
+
         }
     }
-    #gotoHotel{
+
+    #gotoHotel {
         margin-top: rem(30px);
-        color: rgba(48,63,159 ,1);
+        color: rgba(48, 63, 159, 1);
         text-decoration: none;
         position: relative;
         // border-bottom: 1px solid $green;
         font-size: rem(16px);
-        .iconfont{
+
+        .iconfont {
             font-weight: bold;
             font-size: rem(18px);
             animation: navi 1s linear infinite alternate;
         }
     }
 }
-#gallery_container{
+
+#gallery_container {
     position: relative;
     width: 100%;
     background-color: white;
-    @include normal_flex();#gallery{
+    @include normal_flex();
+
+    #gallery {
         position: relative;
         width: 100%;
-        height: rem(700px);
-        #gallery_ctrl{
+        height: 100vh;
+
+        #gallery_ctrl {
             @include normal_flex();
             align-items: flex-start;
             padding: rem(20px);
@@ -335,8 +423,9 @@ html,body,#wedding_invitaiton{
             bottom: rem(0px);
             z-index: 99;
             width: 100%;
-            background: rgba(0,0,0,0.4);
-            .title{
+            background: rgba(0, 0, 0, 0.4);
+
+            .title {
                 display: flex;
                 width: 100%;
                 justify-content: flex-start;
@@ -345,28 +434,32 @@ html,body,#wedding_invitaiton{
                 @include title();
                 color: white;
             }
-            span{
+
+            span {
                 display: block;
                 color: white;
                 text-shadow: 0 0 0 black;
                 font-size: rem(18px);
-                opacity:0.5;
-                transition:all 0.5s linear;
+                opacity: 0.5;
+                transition: all 0.5s linear;
                 font-weight: bold;
                 cursor: pointer;
-                &.active{
+
+                &.active {
                     opacity: 1;
-                    text-shadow: 0 0 rem(30px) rgba(255,255,255,0.8);
+                    text-shadow: 0 0 rem(30px) rgba(255, 255, 255, 0.8);
                 }
             }
         }
-        .photos{
-            background:
-            {
-                position:left center;;
-                repeat:no-repeat;
+
+        .photos {
+            background: {
+                position: center;
+                ;
+                repeat: no-repeat;
                 size: cover;
             }
+
             position: absolute;
             width: 100%;
             height: 100%;
@@ -374,55 +467,76 @@ html,body,#wedding_invitaiton{
             left: 0;
             top: 0;
             opacity: 0;
-            transition:all 2s linear;
-            &.active{
+            transition:all 1.5s linear;
+
+            &:first-of-type,
+            &.active {
                 opacity: 1;
-                animation: gallery 15s linear infinite alternate;              
+                // animation: gallery 15s linear infinite alternate;         
             }
-            &:hover{
-                animation-play-state:paused;
+
+            &:hover {
+                animation-play-state: paused;
             }
         }
     }
 }
+
 // animations
-@keyframes title{
-    from{
-        color: rgba(255, 255, 255,0.5);
+@keyframes title {
+    from {
+        color: rgba(255, 255, 255, 0.5);
     }
-    to{
+
+    to {
         color: white;
     }
 }
-@keyframes navi{
-    from{
-        color: rgba(255,248,225 ,0.5);
+
+@keyframes navi {
+    from {
+        color: rgba(255, 248, 225, 0.5);
     }
-    to{
-        color: rgba(48,63,159 ,1);
+
+    to {
+        color: rgba(48, 63, 159, 1);
     }
 }
-@keyframes gallery{
-    from{
+
+@keyframes gallery {
+    from {
         background-position: center;
     }
-    to{
+
+    to {
         background-position: right center;
     }
 }
+
+@keyframes playing{
+    from {
+        opacity: 0.5;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
 //response
-@media(min-width:800px){
-    #cover{
-        .titles{
+@media(min-width:800px) {
+    #cover {
+        .titles {
             margin-top: 0;
         }
     }
-    #couple_info{
+
+    #couple_info {
         flex-direction: row;
         justify-content: center;
         align-items: center;
-        article{
-            flex:1 0 50%;
+
+        article {
+            flex: 1 0 50%;
         }
     }
 }

@@ -1,3 +1,4 @@
+
 function count_down(){
     let wedding_date = new Date('June 30, 2019');
     let today = new Date();
@@ -30,7 +31,7 @@ fetch('/js/data.json').then(res=>res.json()).then(initData=>{
       }
     },
     methods: {
-      countDownFunc: function countDownFunc() {
+      countDownFunc() {
         var wedding_date = new Date('June 30, 2019');
         var today = new Date();
         var main = Date.parse(wedding_date) - Date.parse(today);
@@ -40,13 +41,13 @@ fetch('/js/data.json').then(res=>res.json()).then(initData=>{
         thisCountDown.minutes.value = Math.floor(main / 1000 / 60 % 60);
         thisCountDown.seconds.value = Math.floor(main / 1000 % 60);
       },
-      _countDownFunc: function _countDownFunc() {
+      _countDownFunc() {
         var that = this;
         setInterval(function () {
           that.countDownFunc();
         }, 1000);
       },
-      timeline: function timeline(top) {
+      timeline(top) {
         var timeline_rows = Array.from(document.querySelectorAll('.timeline_row'));
         timeline_rows.forEach(function (t, i) {
           if (t.offsetTop < top - t.offsetHeight-100) {
@@ -57,7 +58,7 @@ fetch('/js/data.json').then(res=>res.json()).then(initData=>{
           document.getElementsByClassName('photos')[0].classList.add('active');
         }
       },
-      choosePic: function choosePic(index) {
+      choosePic(index) {
         var ctrls = Array.from(document.querySelectorAll('.gallery_ctrls'));
         var pictures = Array.from(document.querySelectorAll('.photos'));
         ctrls.forEach(function (c, i) {
@@ -91,21 +92,28 @@ fetch('/js/data.json').then(res=>res.json()).then(initData=>{
                 wattingForHideNum++
               })
               if(wattingForHideNum == wattingForHide.length){
-                setTimeout(()=>{
+                document.getElementById('bgm').oncanplaythrough = 
+                setTimeout(()=>{                  
                   wattingForHide.forEach((ele,i)=>{
                     ele.style.display = 'none';
                   })
                   document.querySelector('.playH5').classList.add('fadeIn');
                   document.querySelector('.playH5').style.display = 'block';
+                  document.querySelector('.playH5').onclick = ()=>{
+                    document.getElementById('bgm').play();
+                    document.getElementById('musicControl').classList.add('active');
+                    this.noReady = true;
+                    document.querySelector('#ready').style.opacity = 0;
+                    setTimeout(function(){
+                      document.querySelector('#ready').remove();
+                    },500)
+                  }
                 },1500);
               }              
             }
           })          
         })
-      },
-      play(){
-        this.noReady = true;
-      },
+      },      
       throttle(fun, delay) {
         let last, deferTimer
         return function (args) {
@@ -125,7 +133,8 @@ fetch('/js/data.json').then(res=>res.json()).then(initData=>{
         }
     }
     },
-    created: function created() {
+    created(){
+      console.log(this.data)
       this.loadResources()  
       if (document.body.clientWidth <= 580) {
         document.getElementsByTagName('html')[0].style.fontSize = window.innerWidth / 12 + 'px';
@@ -144,11 +153,27 @@ fetch('/js/data.json').then(res=>res.json()).then(initData=>{
   
       window.onscroll = function () {
         var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-        wi.throttle(wi.timeline(scrollTop), 1000);
-        // if (scrollTop > document.getElementById('dot1').offsetTop) {
-        //   document.getElementsByClassName('photos')[0].classList.add('active');
-        // }
+        wi.throttle(wi.timeline(scrollTop), 2000);
       };
+    },
+    mounted(){
+      Array.from(document.querySelectorAll('.phone')).forEach((p,i)=>{
+        console.log(p)
+        p.onclick = ()=>{
+          console.log(p.getAttribute('title'))
+          window.open("tel:"+p.getAttribute('title'))
+        }
+      })
     }
   });
 })
+let musicStatus = true
+function musicControl(){
+  if(musicStatus){
+    document.getElementById('bgm').pause();
+    document.getElementById('musicControl').classList.remove('active');
+  }else{
+    document.getElementById('bgm').play();
+    document.getElementById('musicControl').classList.add('active');
+  }
+}
