@@ -1,7 +1,7 @@
 "use strict";
 
 function count_down() {
-  var wedding_date = new Date('June 30, 2019');
+  var wedding_date = new Date('May 18, 2023');
   var today = new Date();
   var main = Date.parse(wedding_date) - Date.parse(today);
   var ct = {
@@ -31,7 +31,7 @@ fetch('/js/data.json').then(function (res) {
     },
     methods: {
       countDownFunc: function countDownFunc() {
-        var wedding_date = new Date('June 30, 2019');
+        var wedding_date = new Date('May 18, 2023');
         var today = new Date();
         var main = Date.parse(wedding_date) - Date.parse(today);
         var thisCountDown = this.countDown;

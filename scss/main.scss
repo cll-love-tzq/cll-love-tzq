@@ -81,7 +81,7 @@ body,
         margin-top: rem(20px);
     }
 
-    background-color: rgba(255,196,0 ,1);
+    background-color: rgba(241,219,226 ,1);
     display: flex;
 
     &.finished {
@@ -169,7 +169,7 @@ body,
         margin-top: rem(80px);
 
         #headTitle {
-            font-size: rem(60px);
+            font-size: rem(40px);
             color: $title_white;
             text-align: center;
             font-family: 'font1', cursive, sans-serif;

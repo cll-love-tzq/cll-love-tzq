@@ -20,37 +20,37 @@
     },
     "couple_info": {
         "groom": {
-            "title": "The Groom",
-            "name": "Lan Ruqing",
-            "phone": "15040501365",
+            "title": "新郎",
+            "name": "陈礼林",
+            "phone": "17826858140",
             "avatar": "/img/lrq.jpg"
         },
         "bride": {
-            "title": "The Bride",
-            "name": "Mei Siyu",
-            "phone": "13940943132",
+            "title": "新娘",
+            "name": "田梓琪",
+            "phone": "15858191064",
             "avatar": "/img/msy.jpg"
         }
     },
     "timeline_nodes": [{
-        "time": "2010",
-        "title": "we met at school",
+        "time": "2014年9月",
+        "title": "我们在大学相遇",
         "icon": "icon-school"
     }, {
-        "time": "Nov 08, 2012",
-        "title": "we fall in love",
+        "time": "2016年9月",
+        "title": "我们在一起了",
         "icon": "icon-aiqingyuehui"
     }, {
-        "time": "2018",
-        "title": "We ready to get married",
+        "time": "2018&2019年",
+        "title": "我们毕业了",
         "icon": "icon-svgmanylove"
     }, {
-        "time": "Feb 14, 2019",
-        "title": "We got married",
+        "time": "2021年10月",
+        "title": "我们订婚了",
         "icon": "icon-jiehunzhengshu"
     }, {
-        "time": "Jun 30, 2019",
-        "title": "Our wedding",
+        "time": "2023年5月",
+        "title": "我们举办婚礼了",
         "icon": "icon-bhjwedding"
     }],
     "gallery": [{

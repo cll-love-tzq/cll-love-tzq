@@ -7,7 +7,7 @@
         content="width=device-width, initial-scale=1, maximum-scale=1,minimum-scale=1, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Welcome to our wedding !</title>
-    <meta name="description" content="欢迎参加兰如青和梅思雨的婚礼,6月30日,富丽华南山花园酒店日式庭院">
+    <meta name="description" content="欢迎参加陈礼林和田梓琪的婚礼,5月18日">
     <script src="./js/vue.js"></script>
     <script src="./js/main.js"></script>
     <link rel="stylesheet" href="https://at.alicdn.com/t/font_1102246_qyecm34izhf.css">
@@ -20,6 +20,12 @@
 <body>
     <audio src="/music/ICanNotChange.mp3" autoplay="autoplay" preload loop id="bgm"></audio>
     <div id="ready">
+        <div id="prompt1">
+            <div>诚  挚  邀  请</div>
+            <div>您和您的家人</div>
+            <div>参加我们的婚礼~</div>
+            <div><br><br></div>
+        </div>
         <div class="wattingForHide loader animated">
             <div class="pacman">
                 <div></div>
@@ -29,16 +35,25 @@
                 <div></div>
             </div>
         </div>
-        <p class="wattingForHide animated tada infinite slow">loading...</p>
-        <a class="iconfont icon-play playH5 animated"></a>
+        <p class="wattingForHide animated tada infinite slow">loading</p>
+        <a class="iconfont icon-play playH5 animated">打开请帖</a>
+        <div id="prompt2">
+            <div><br><br></div>
+            <div>即将展现一段精彩的故事...</div>
+            <div><br></div>
+            <div>🎗︎🎗︎🎗︎耐心等我加载一会</div>
+            <div><br>🤫🤫🤫(ps:怪产品内容加太多！)</div>
+            <div><br><br></div>
+        </div>
     </div>
-    <div id="wedding_invitaiton" :class="noReady ? '' : 'noReady'" style="background-image: url('/img/bg.jpg')">
+    <div id="wedding_invitaiton" :class="noReady ? '' : 'noReady'" style="background-image: url('/img/bg/bg1.jpeg')">
         <span id="musicControl" class="iconfont icon-music" onclick="musicControl()"></span>
         <div id="cover">
             <div class="titles">
                 <h1 id='headTitle'>
-                    Lan & Mei
+                    陈礼林 & 田梓琪
                 </h1>
+                </br>
                 <h3 class="subTitle animate">
                     We Are Getting Married
                 </h3>
@@ -48,7 +63,7 @@
                 </span>
             </div>
             <h3 class="subTitle">
-                - 2019.06.30 -
+                - 2023.05.18 -
             </h3>
         </div>
         <div id="couple_info">
@@ -64,7 +79,7 @@
         </div>
         <div id='timeline_container'>
             <div id='timeline_cover'>
-                <h3>Our stories</h3>
+                <h3>我们的故事</h3>
                 <div class="timeline_row animated slow" v-for="(nodes,index) in timeline_nodes">
                     <div class="timeline_dot">
                         <span v-bind:class="['iconfont', nodes.icon]" :id="'dot'+(index+1)"></span>
@@ -80,16 +95,38 @@
             <h3>FYI</h3>
             <p>
                 <span class="iconfont icon-rili title"></span>
-                <span class="inner">2019.06.30</span>
+                <span class="inner">婚礼日期 2023.05.18</span>
+            </p>
+            <br>
+            👇👇👇流程安排👇👇👇
+            <p>
             </p>
             <p>
                 <span class="iconfont icon-shijian title"></span>
-                <span class="inner">10:58</span>
+                <span class="inner">户外婚礼 12:30</span>
             </p>
             <p>
                 <span class="iconfont icon-ditu title"></span>
                 <span class="inner hotellInfo">
-                    富丽华南山花园酒店<span class="iconfont icon-dianhua3 phone" title="+86041182715555"></span>
+                    丽水·龙泉市棋盘山<span class="iconfont icon-dianhua3 phone" title="+8617826858140"></span>
+                </span>
+            </p>
+            <p>
+                <a target="_blank" id="gotoHotel" class="animated tada infinite slow"
+                    href="https://apis.map.qq.com/uri/v1/marker?marker=coord:38.913400,121.659060;title:南山宾馆;addr:辽宁省大连市中山区枫林街56号&referer=4GBBZ-RD562-RDSU3-CQQB5-SXOET-AMFA4">
+                    Go to Hotel
+                    <span class="iconfont icon-daohang"></span>
+                </a>
+            </p>
+
+            <p>
+                <span class="iconfont icon-shijian title"></span>
+                <span class="inner">晚宴 4:30</span>
+            </p>
+            <p>
+                <span class="iconfont icon-ditu title"></span>
+                <span class="inner hotellInfo">
+                    丽水·龙泉市宝更村<span class="iconfont icon-dianhua3 phone" title="+8617826858140"></span>
                 </span>
             </p>
             <p>
@@ -113,6 +150,39 @@
                 </div>
             </div>
         </div>
+
+
+        <div id='production_team'>
+            <h3>特 别 鸣 谢</h3>
+            <p>
+                <span class="inner">为我们筹备婚礼的家人们~</span>
+            </p>
+            <br><br>
+            <h3>请帖制作团队</h3>
+            <p>
+                <span class="iconfont icon-shijian title"></span>
+                <span class="inner">要求特多的PM：田梓琪</span>
+            </p>
+            <p>
+                <span class="iconfont icon-shijian title"></span>
+                <span class="inner">催进度的PMO：田梓琪</span>
+            </p>
+            <p>
+                <span class="iconfont icon-shijian title"></span>
+                <span class="inner">只动嘴的鼓励师：田梓琪</span>
+            </p>
+            <p>
+                <span class="iconfont icon-shijian title"></span>
+                <span class="inner">👨🏻‍💻开发：陈礼林</span>
+            </p>
+            <br>
+            <h3>彩 蛋</h3>
+            <p>
+                <a target="_top" href="https://picx.zhimg.com/80/v2-e9571ee605c4af8846a24a916e4a6e96_1440w.webp?source=1940ef5c">查看更多</a>
+            </p>
+
+        </div>
+
     </div>
 </body>
 

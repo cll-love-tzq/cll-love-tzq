@@ -1,6 +1,6 @@
 
 function count_down(){
-    let wedding_date = new Date('June 30, 2019');
+    let wedding_date = new Date('May 18, 2023');
     let today = new Date();
     const main = Date.parse(wedding_date) - Date.parse(today);
     let ct = {
@@ -32,7 +32,7 @@ fetch('/js/data.json').then(res=>res.json()).then(initData=>{
     },
     methods: {
       countDownFunc() {
-        var wedding_date = new Date('June 30, 2019');
+        var wedding_date = new Date('May 18, 2023');
         var today = new Date();
         var main = Date.parse(wedding_date) - Date.parse(today);
         var thisCountDown = this.countDown;
