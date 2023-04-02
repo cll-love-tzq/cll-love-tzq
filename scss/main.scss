@@ -70,6 +70,19 @@ body,
     @include normal-bg();
 }
 
+#prompt1{
+    color: rgb(222, 25, 219);
+    font-size: 20px;
+    margin-top: 0.53333rem;
+    text-align: center; 
+  }
+  #prompt2{
+    color: white;
+    font-size: 16px;
+    margin-top: 0.53333rem;
+    text-align: center;
+  }
+
 #ready {
     .loader {
         display: block;
@@ -101,7 +114,7 @@ body,
 
     .playH5 {
         display: none;
-        font-size: rem(60px);
+        font-size: rem(24px);
         color: white;
 
         &#start {
@@ -147,7 +160,7 @@ body,
 }
 
 #cover {
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.158);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -263,6 +276,7 @@ body,
 
 #timeline_container {
     position: relative;
+    height: 100%;
     width: 100%;
     background-image: url('/img/timelineBg.jpg');
     background-position: center bottom;
@@ -272,7 +286,7 @@ body,
     background-repeat: no-repeat;
 
     #timeline_cover {
-        background-color: rgba(166, 106, 176, 0.6);
+        // background-color: rgba(166, 106, 176, 0.6);
         padding: rem(20px) rem(5px);
         display: flex;
         justify-content: flex-start;
@@ -483,6 +497,53 @@ body,
         }
     }
 }
+
+
+#production_team {
+    padding: 0.8rem 1.33333rem 0.53333rem 1.33333rem;
+    background-color: #fff8e1;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.53333rem;
+    color: #303f9f;
+  }
+  #production_team h3 {
+    font-size: 0.8rem;
+    margin-bottom: 0.53333rem;
+    color: #303f9f; }
+  #production_team p {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.13333rem auto; }
+    #production_team p .title {
+      flex: 1;
+      font-size: 0.8rem;
+      text-align: center; }
+    #production_team p .inner {
+      flex: 3 0 2.66667rem;
+      text-align: center; }
+      #production_team p .inner.hotellInfo {
+        display: flex;
+        align-items: center;
+        justify-content: center; }
+        #production_team p .inner.hotellInfo .phone {
+          margin-left: 0.08rem;
+          font-size: 0.66667rem; }
+  #production_team #gotoHotel {
+    margin-top: 0.8rem;
+    color: #303f9f;
+    text-decoration: none;
+    position: relative;
+    font-size: 0.42667rem; }
+    #production_team #gotoHotel .iconfont {
+      font-weight: bold;
+      font-size: 0.48rem;
+      animation: navi 1s linear infinite alternate; }
 
 // animations
 @keyframes title {

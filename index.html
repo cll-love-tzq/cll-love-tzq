@@ -6,7 +6,7 @@
     <meta name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1,minimum-scale=1, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Welcome to our wedding !</title>
+    <title>陈礼林&田梓琪的婚礼邀请函 !</title>
     <meta name="description" content="欢迎参加陈礼林和田梓琪的婚礼,5月18日">
     <script src="./js/vue.js"></script>
     <script src="./js/main.js"></script>
@@ -18,7 +18,7 @@
 </head>
 
 <body>
-    <audio src="/music/ICanNotChange.mp3" autoplay="autoplay" preload loop id="bgm"></audio>
+    <audio src="/music/bgm.mp3" autoplay="autoplay" preload loop id="bgm"></audio>
     <div id="ready">
         <div id="prompt1">
             <div>诚  挚  邀  请</div>
@@ -42,7 +42,7 @@
             <div>即将展现一段精彩的故事...</div>
             <div><br></div>
             <div>🎗︎🎗︎🎗︎耐心等我加载一会</div>
-            <div><br>🤫🤫🤫(ps:怪产品内容加太多！)</div>
+            <div><br>🤫🤫🤫(ps:怪新娘内容加太多！)</div>
             <div><br><br></div>
         </div>
     </div>
@@ -80,7 +80,7 @@
         <div id='timeline_container'>
             <div id='timeline_cover'>
                 <h3>我们的故事</h3>
-                <div class="timeline_row animated slow" v-for="(nodes,index) in timeline_nodes">
+                <div class="timeline_row animated slow" v-on:click="storyPic(index)" v-for="(nodes,index) in timeline_nodes">
                     <div class="timeline_dot">
                         <span v-bind:class="['iconfont', nodes.icon]" :id="'dot'+(index+1)"></span>
                     </div>
@@ -92,7 +92,7 @@
             </div>
         </div>
         <div id='tips_container'>
-            <h3>FYI</h3>
+            <h3>恭候光临</h3>
             <p>
                 <span class="iconfont icon-rili title"></span>
                 <span class="inner">婚礼日期 2023.05.18</span>
@@ -121,7 +121,7 @@
 
             <p>
                 <span class="iconfont icon-shijian title"></span>
-                <span class="inner">晚宴 4:30</span>
+                <span class="inner">晚宴 16:30</span>
             </p>
             <p>
                 <span class="iconfont icon-ditu title"></span>
@@ -140,7 +140,7 @@
         <div id='gallery_container'>
             <div id="gallery">
                 <div id="gallery_ctrl">
-                    <!-- <h3 class="title">Gallery</h3> -->
+                    <h6 class="title">相册</h6>
                     <span v-on:click="choosePic(index)" v-for="(pic,index) in gallery" :for="index"
                         :class="['gallery_ctrls',index == 0 ? 'active' : '']">
                         {{pic.title | uppercase}}

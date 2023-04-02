@@ -10,9 +10,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@gitee.com:lanruqing/wedding_invitation.git"
+    "url": "git@gitee.com:cll314/wedding_invitation.git"
   },
-  "author": "lan ruqing",
+  "author": "cll",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.3.4",

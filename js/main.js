@@ -13,7 +13,42 @@ function count_down() {
   console.log(main + '\n' + ct.day);
   var result = "\n        <span title=\"days\">".concat(ct.days, "</span>\n        <span title=\"hours\">").concat(ct.hours, "</span>\n        <span title=\"minutes\">").concat(ct.minutes, "</span>\n        <span title=\"seconds\">").concat(ct.seconds, "</span>\n    ");
   document.querySelector('#countDown').insertAdjacentHTML('beforeend', result);
-}
+} // window.onload=function(){
+//   /*循环播放哪些图片*/
+//   var imgs=["/img/timeline/1.jpeg",
+//         "/img/timeline/2.jpeg",
+//         "/img/timeline/3.jpeg",
+//         "/img/timeline/4.jpeg",
+//         "/img/timeline/4.jpeg"];
+//   var i=0;
+//   var head=document.getElementById('timeline_container');
+//   head.style.background="url(/img/timeline/1.jpg)";
+//   function time(){
+//     /*当循环超过图片总数时，又重新开始*/
+//     if(i>=4){
+//       i=0;
+//       /*建立图片对象，方便控制图片什么时候加载。
+//       这个是为了用来消除切换图片时的白色闪屏问题*/
+//       var img=new Image();
+//       img.src=imgs[i];
+//       img.onload=function(){
+//         head.style.background="url("+img.src+")";
+//       }
+//     }else{
+//       var dot=document.getElementById("'dot'+(i+1)");
+//       i++;
+//       var img=new Image();
+//       img.src=imgs[i];
+//       img.onload=function(){
+//         head.style.backgroundImage="url("+img.src+")";
+//         // dot.style.color="green";
+//       }
+//     }
+//   }
+//   /*设置循环函数time(),每5秒切换一次*/
+//   setInterval(time,1000);
+// }
+
 
 fetch('/js/data.json').then(function (res) {
   return res.json();
@@ -57,6 +92,12 @@ fetch('/js/data.json').then(function (res) {
         if (top > document.getElementById('dot1').offsetTop) {
           document.getElementsByClassName('photos')[0].classList.add('active');
         }
+      },
+      storyPic: function storyPic(index) {
+        console.log("sdsdsdsd:" + index);
+        var timeline_cover = document.getElementById('timeline_cover');
+        timeline_cover.style.backgroundImage = "url(/img/timeline/4.jpeg)";
+        timeline_cover.style.backgroundSize = "cover";
       },
       choosePic: function choosePic(index) {
         var ctrls = Array.from(document.querySelectorAll('.gallery_ctrls'));
