@@ -54,19 +54,19 @@
         "icon": "icon-bhjwedding"
     }],
     "gallery": [{
-        "title": "sea",
+        "title": "星河滚烫， 你是人间理想",
         "src": "/img/gallery/1.jpeg"
     }, {
-        "title": "park",
+        "title": "皓月清凉， 你是人间曙光",
         "src": "/img/gallery/2.jpeg"
     }, {
-        "title": "Formal",
+        "title": "人海冷漠， 你是人间炽热",
         "src": "/img/gallery/3.jpeg"
     }, {
-        "title": "Valencia",
+        "title": "满眼星河， 你是清风满月",
         "src": "/img/gallery/4.jpeg"
     }, {
-        "title": "Old Street",
-        "src": "/img/gallery/4.jpeg"
+        "title": "众生平庸， 你是人间星光",
+        "src": "/img/gallery/5.jpeg"
     }]
 }

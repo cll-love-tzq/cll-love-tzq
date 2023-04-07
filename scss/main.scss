@@ -10,6 +10,8 @@ $deep_blue:rgba(48, 63, 159, 1);
 $couple_info_bg:$light_yellow;
 $timeline_container_bg:$light_blue;
 $timeline_main_color:white;
+$pink:rgba(255,204,204,1);
+$wenben:$pink;
 
 @function rem($px) {
     @return ($px/37.5px)+rem
@@ -365,12 +367,12 @@ body,
     @include normal_flex();
     justify-content: center;
     font-size: rem(20px);
-    color: rgba(48, 63, 159, 1);
+    color: $wenben;
 
     h3 {
         @include title();
         margin-bottom: rem(20px);
-        color: rgba(48, 63, 159, 1);
+        color: $wenben;
     }
 
     p {
@@ -405,7 +407,7 @@ body,
 
     #gotoHotel {
         margin-top: rem(30px);
-        color: rgba(48, 63, 159, 1);
+        color: $wenben;
         text-decoration: none;
         position: relative;
         // border-bottom: 1px solid $green;
@@ -507,22 +509,34 @@ body,
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: 0.53333rem;
-    color: #303f9f;
+    font-size: 0.3rem;
+    color: $wenben;
   }
-  #production_team h3 {
-    font-size: 0.8rem;
+#production_team h3 {
+    font-size: 0.5rem;
     margin-bottom: 0.53333rem;
-    color: #303f9f; }
-  #production_team p {
+    color: $wenben;
+}
+
+#production_team p {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0.13333rem auto; }
+    margin: 0.13333rem auto;
+}
+
+#production_team a{
+    color:$wenben;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.13333rem auto;
+}
     #production_team p .title {
       flex: 1;
-      font-size: 0.8rem;
+      font-size: 0.4rem;
       text-align: center; }
     #production_team p .inner {
       flex: 3 0 2.66667rem;
@@ -534,16 +548,7 @@ body,
         #production_team p .inner.hotellInfo .phone {
           margin-left: 0.08rem;
           font-size: 0.66667rem; }
-  #production_team #gotoHotel {
-    margin-top: 0.8rem;
-    color: #303f9f;
-    text-decoration: none;
-    position: relative;
-    font-size: 0.42667rem; }
-    #production_team #gotoHotel .iconfont {
-      font-weight: bold;
-      font-size: 0.48rem;
-      animation: navi 1s linear infinite alternate; }
+
 
 // animations
 @keyframes title {
@@ -562,7 +567,7 @@ body,
     }
 
     to {
-        color: rgba(48, 63, 159, 1);
+        color: $wenben;
     }
 }
 
